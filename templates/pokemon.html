@@ -21,14 +21,14 @@
     <br>
     <br>
     <br>
-<div class="container">
+<div class="container  py-5">
         <div class="row">
         {% for pokemon  in range(0,654) %}
-            <div class="col-md-3">
+            <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
             	<br>
             	<br>
             	<br>
-            <div class="card" style="width: 15rem; height: 25rem;">
+            <div class="card" >
             <img class="card-img-top lazzy" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ pokemon + 1 }}.png" alt="{{ data.results[pokemon].name  }}.png">
               <div class="card-body">
                 <h2 class="card-title"><a href="https://pokeapi.co/api/v2/pokemon/{{ data.results[pokemon].name  }}">{{ data.results[pokemon].name  }}</a></h2>
