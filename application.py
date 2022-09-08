@@ -7,14 +7,14 @@ import sys
 import logging
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
-@app.route('/')
+@application.route('/')
 def Home():
     return 'Home version 1.1 <a href="/rick">Rick & Morty</a> <a href="/pokemon">Pokemon</a>'
 
-@app.route('/rick')
+@application.route('/rick')
 def rick():
     uri = "https://rickandmortyapi.com/api/character?limit=500"
     try:
@@ -25,7 +25,7 @@ def rick():
     data = json.loads(Jresponse)
     return render_template('rick.html',  data=data)
 
-@app.route('/pokemon')
+@application.route('/pokemon')
 def pokemon():
     uri = "https://pokeapi.co/api/v2/pokemon?limit=654"
 
@@ -39,12 +39,12 @@ def pokemon():
 
 
 
-@app.route('/button')
+@application.route('/button')
 def button_clicked():
     print('Hello world!', file=sys.stderr)
     return redirect('/')
 
-@app.route('/print')
+@application.route('/print')
 def printMsg():
     app.logger.warning('testing warning log')
     app.logger.error('testing error log')
@@ -54,7 +54,7 @@ def printMsg():
     return "Check your console"
 
 
-@app.route("/test_rick")
+@application.route("/test_rick")
 def test_rick():
     uri = "https://rickandmortyapi.com/api/character"
     try:
@@ -66,7 +66,7 @@ def test_rick():
 
     return data
 
-@app.route("/test_pokemon")
+@application.route("/test_pokemon")
 def test_pokemon():
     uri = "https://pokeapi.co/api/v2/pokemon?limit=654"
     try:
@@ -79,4 +79,4 @@ def test_pokemon():
     return data
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=True)
+    application.run(host='0.0.0.0', port=80, debug=True)
